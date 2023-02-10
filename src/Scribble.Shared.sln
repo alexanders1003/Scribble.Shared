@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scribble.Shared.Models", "Scribble.Shared.Models\Scribble.Shared.Models.csproj", "{7C24D514-AB44-4CAC-9FD5-9B27A55BFCC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scribble.Shared.Infrastructure", "Scribble.Shared.Infrastructure\Scribble.Shared.Infrastructure.csproj", "{79F4E424-0A95-4210-B0FC-A339A68BDDD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C24D514-AB44-4CAC-9FD5-9B27A55BFCC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C24D514-AB44-4CAC-9FD5-9B27A55BFCC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C24D514-AB44-4CAC-9FD5-9B27A55BFCC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C24D514-AB44-4CAC-9FD5-9B27A55BFCC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79F4E424-0A95-4210-B0FC-A339A68BDDD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79F4E424-0A95-4210-B0FC-A339A68BDDD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79F4E424-0A95-4210-B0FC-A339A68BDDD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79F4E424-0A95-4210-B0FC-A339A68BDDD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
