@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace Scribble.Posts.Infrastructure.Factories;
+namespace Scribble.Shared.Infrastructure.Factories;
 
 public interface IConnectionFactory
 {

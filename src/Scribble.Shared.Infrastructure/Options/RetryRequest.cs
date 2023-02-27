@@ -1,4 +1,4 @@
-﻿namespace Scribble.Posts.Infrastructure.Options;
+﻿namespace Scribble.Shared.Infrastructure.Options;
 
 public static class RetryRequest
 {

@@ -1,6 +1,4 @@
-﻿using Scribble.Shared.Infrastructure.Options;
-
-namespace Scribble.Posts.Infrastructure.Options;
+﻿namespace Scribble.Shared.Infrastructure.Options;
 
 public class RetryOptions
 {

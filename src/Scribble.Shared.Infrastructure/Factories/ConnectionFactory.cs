@@ -1,7 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-using Scribble.Posts.Infrastructure.Factories;
 
 namespace Scribble.Shared.Infrastructure.Factories;
 

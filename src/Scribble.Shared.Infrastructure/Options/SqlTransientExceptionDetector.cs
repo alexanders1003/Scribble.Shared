@@ -1,5 +1,4 @@
 ﻿using System.Data.SqlClient;
-using Scribble.Posts.Infrastructure.Options;
 
 namespace Scribble.Shared.Infrastructure.Options;
 

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Scribble.Posts.Infrastructure.Factories;
 using Scribble.Shared.Infrastructure.Factories;
 
 namespace Scribble.Shared.Infrastructure.Extensions;

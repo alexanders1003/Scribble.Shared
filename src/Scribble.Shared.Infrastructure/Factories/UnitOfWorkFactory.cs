@@ -1,5 +1,4 @@
-﻿using Scribble.Posts.Infrastructure.Factories;
-using Scribble.Posts.Infrastructure.Options;
+﻿using Scribble.Shared.Infrastructure.Options;
 
 namespace Scribble.Shared.Infrastructure.Factories;
 
@@ -10,17 +9,15 @@ public class UnitOfWorkFactory : IUnitOfWorkFactory
     public UnitOfWorkFactory(IConnectionFactory connectionFactory)
         => _connectionFactory = connectionFactory;
 
-    public Task<IUnitOfWork> CreateAsync(CancellationToken token = default)
-    {
-        return CreateAsync(RetryOptions.Default, token);
-    }
+    public Task<IUnitOfWork> CreateAsync(bool transactional = false, CancellationToken token = default)
+        => CreateAsync(RetryOptions.Default, transactional, token);
 
-    public async Task<IUnitOfWork> CreateAsync(RetryOptions retryOptions, CancellationToken token = default)
+    public async Task<IUnitOfWork> CreateAsync(RetryOptions retryOptions, bool transactional = false, CancellationToken token = default)
     {
         var connection = await _connectionFactory
             .CreateConnectionAsync(token)
             .ConfigureAwait(false);
 
-        return new UnitOfWork(connection, retryOptions);
+        return new UnitOfWork(connection, transactional, retryOptions);
     }
 }

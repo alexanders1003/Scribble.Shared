@@ -1,5 +1,5 @@
 ﻿using System.Data;
-using Scribble.Posts.Infrastructure.Options;
+using Scribble.Shared.Infrastructure.Options;
 
 namespace Scribble.Shared.Infrastructure;
 
@@ -7,15 +7,17 @@ public class UnitOfWork : IUnitOfWork
 {
     private bool _disposed;
     private IDbConnection _connection;
-    private IDbTransaction _transaction;
+    private IDbTransaction? _transaction;
 
     private readonly RetryOptions? _retryOptions;
 
-    internal UnitOfWork(IDbConnection connection, RetryOptions? retryOptions)
+    internal UnitOfWork(IDbConnection connection, bool transactional, RetryOptions? retryOptions)
     {
         _connection = connection;
-        _transaction = connection.BeginTransaction(IsolationLevel.ReadCommitted);
-        
+        _transaction = transactional
+            ? connection.BeginTransaction()
+            : default;
+
         _retryOptions = retryOptions;
     }
 
@@ -33,9 +35,9 @@ public class UnitOfWork : IUnitOfWork
                 .ExecuteAsync(_connection, _transaction, token), _retryOptions);
     }
 
-    public void Commit() => _transaction.Commit();
+    public void Commit() => _transaction?.Commit();
 
-    public void Rollback() => _transaction.Rollback();
+    public void Rollback() => _transaction?.Rollback();
 
     public void Dispose()
     {
@@ -53,7 +55,7 @@ public class UnitOfWork : IUnitOfWork
         if (disposing)
         {
             _connection.Dispose();
-            _transaction.Dispose();
+            _transaction?.Dispose();
         }
 
         _connection = null!;
